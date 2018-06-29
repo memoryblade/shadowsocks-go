@@ -14,10 +14,10 @@ clean:
 
 # -a option is needed to ensure we disabled CGO
 $(LOCAL): shadowsocks/*.go cmd/$(PREFIX)-local/*.go
-	cd cmd/$(PREFIX)-local; $(CGO) go install
+	cd cmd/$(PREFIX)-local; $(CGO) go build -o zz-local
 
 $(SERVER): shadowsocks/*.go cmd/$(PREFIX)-server/*.go
-	cd cmd/$(PREFIX)-server; $(CGO) go install
+	cd cmd/$(PREFIX)-server; $(CGO) go build -o zz-server
 
 local: $(LOCAL)
 
